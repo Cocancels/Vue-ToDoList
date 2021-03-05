@@ -1,5 +1,5 @@
 
-# Construction d'une Todo List
+# Construction d'une Todo List CORENTIN ANCEL
 
 Dans cet atelier, nous allon apprendre à faire une **Todo List** en utilisant Vue.js et Bulma pour la gestion de notre style.
 
