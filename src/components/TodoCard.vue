@@ -25,8 +25,24 @@ export default {
           };
 
           this.tasks.push(newTask)
+          console.log(this.tasks)
+      },
+
+      checkTask(index){
+          if(index.done == false){
+          index.done = true;
+        }
+        else{
+            index.done = false;
+          }
+      },
+
+      removeTask(index){
+          this.tasks.splice(this.tasks.indexOf(index), 1)
       }
-  },
+
+    },
+  
 
   computed: { 
       dataDate: function(){
@@ -48,13 +64,13 @@ export default {
   <div id="app">
       <div class="card">
         <div class="card-header">
-            <p>{{ dataDate }}</p>
-            <p>VuesJs Tutorial ToDo List</p>
-            <p>{{ tasks.length }} tâches</p>
+            <p class='date'>{{ dataDate }}</p>
+            <p class="title-p">VuesJs Tutorial ToDo List</p>
+            <p class='length'>{{ tasks.length }} tâches</p>
         </div>
         <div class="card-content">
             <new-todo @sendTask=addTask ></new-todo>
-            <todo-list :tasks="tasks"></todo-list>
+            <todo-list @remover=removeTask @check=checkTask :tasks="tasks"></todo-list>
         </div>
       </div>
   </div>
@@ -71,5 +87,16 @@ export default {
         justify-content: space-between;
         padding: 15px;
     }
+
+    .title-p{
+        color: rgb(20, 185, 190);
+        font-size: 30px;
+    }
+
+    .date, .length{
+        font-size: 20px;
+    }
+
+    
 
 </style>
